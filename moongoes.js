@@ -30,6 +30,7 @@ const schema = new mongoose.Schema({
   }
 })
 
+
 // Creating a collection with a name of 'Collection'
 // Here const Collection is a class
 const Collection = new mongoose.model("Collection", schema);
@@ -45,6 +46,27 @@ const first__document = new Collection({
   date : Date.now()
 })
 
-//Saving the document to the collection
+//Saving the document to the collection 
+//This is time comsuming and out-dated
 first__document.save()
-.then(() => console.log("document saved"));
+.then(() => console.log("document saved") );
+
+
+//The mordern and optimal way of creating and saving to the collections
+const create_doc = async () => {
+  try{
+    const second_document = new Collection({
+      name : "Front-end",
+      ctype : "Front-end",
+      videos : 500,
+      author : "Avinash",
+      active : true
+    })
+    await second_document.save();
+    
+  }catch{
+    err => console.log(err);
+  }
+}
+
+create_doc();
