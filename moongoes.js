@@ -63,10 +63,15 @@ const create_doc = async () => {
       active : true
     })
     await second_document.save();
-    
+
   }catch{
     err => console.log(err);
   }
 }
 
 create_doc();
+
+/*
+ Note -> to insert many documents at once we simply write 
+ await collection_name.insertMany([doc1, doc2, doc3, ... ,docN])
+*/
