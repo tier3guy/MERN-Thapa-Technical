@@ -1,22 +1,23 @@
 {
-  "name": "mern",
-  "version": "1.0.0",
-  "description": "This is a mern tutorial",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tier3guy/MERN.git"
-  },
-  "author": "Avinash",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/tier3guy/MERN/issues"
-  },
-  "homepage": "https://github.com/tier3guy/MERN#readme",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+    "name": "mern",
+    "version": "1.0.0",
+    "description": "This is a mern tutorial",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tier3guy/MERN.git"
+    },
+    "author": "Avinash",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/tier3guy/MERN/issues"
+    },
+    "homepage": "https://github.com/tier3guy/MERN#readme",
+    "dependencies": {
+        "express": "^4.17.1"
+    }
 }
