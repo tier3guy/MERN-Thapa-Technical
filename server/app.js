@@ -8,8 +8,8 @@ const port = process.env.PORT || 3000;
 // configuring MiddleWare
 const middleware = (req, res, next) => {
     console.log('The is middleware is running');
+    next();
 }
-middleware();
 
 app.get('/', (req, res) => {
     res.send('Hello, world! The server is live now ..');
