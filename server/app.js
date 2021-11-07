@@ -8,9 +8,11 @@ const port = process.env.PORT || 3000;
 // ENV
 dotenv.config({ path: './config.env' });
 
+// model
+const User = require('./model/userSchema.js');
+
 // configuring database
 require('./Database/connection');
-
 
 // configuring MiddleWare
 const middleware = (req, res, next) => {
