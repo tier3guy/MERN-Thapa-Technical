@@ -1,8 +1,15 @@
+const dotenv = require('dotenv');
 const express = require('express');
 const app = express();
 
 // configuring port 
 const port = process.env.PORT || 3000;
+
+// ENV
+dotenv.config({ path: './config.env' });
+
+// configuring database
+require('./Database/connection');
 
 
 // configuring MiddleWare
