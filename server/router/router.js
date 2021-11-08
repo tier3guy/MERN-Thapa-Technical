@@ -41,8 +41,18 @@ router.post('/signup', async(req, res) => {
     } catch (err) {
         console.log(err);
     }
-
-
 });
+
+router.post('/login', async(req, res) => {
+    const { email, password } = req.body;
+    const registeredUser = await User.findOne({ email: email });
+
+    if (!registeredUser) res.send("USER NOT FOUND");
+    if (registeredUser.password === password) {
+        res.send("USER AUTHENTICATED");
+    } else {
+        res.send("Invalid Credentials");
+    }
+})
 
 module.exports = router;
