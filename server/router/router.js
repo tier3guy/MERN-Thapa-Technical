@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
+require('../Database/connection');
+const User = require('../model/userSchema');
+
 // configuring MiddleWare
 const middleware = (req, res, next) => {
     console.log('The is middleware is running');
@@ -20,9 +23,26 @@ router.get('/login', (req, res) => {
     res.send('Hello this is LOGIN routing');
 });
 
-router.post('/signup', (req, res) => {
-    console.log(req.body);
-    res.send('Hello this is SIGNUP routing');
+router.post('/signup', async(req, res) => {
+    const { name, email, phone, password, confirmPassword } = req.body;
+    const user = new User({ name, email, phone, password, confirmPassword });
+
+    try {
+        const userExists = await User.findOne({ email: email });
+        if (userExists) {
+            console.log("ERROR : USER ALREADY EXISTS");
+            return res.status(500).send("ERROR : USER ALREADY EXISTS");
+        }
+        let saved = await user.save();
+        if (saved) {
+            console.log("USER ADDED SUCCESSFULLY");
+            res.status(201).send("USER ADDED SUCCESSFULLY");
+        }
+    } catch (err) {
+        console.log(err);
+    }
+
+
 });
 
 module.exports = router;
