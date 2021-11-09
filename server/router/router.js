@@ -7,7 +7,6 @@ const User = require('../model/userSchema');
 
 // configuring MiddleWare
 const middleware = (req, res, next) => {
-    console.log('The is middleware is running');
     next();
 }
 

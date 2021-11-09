@@ -8,7 +8,7 @@ app.use(express.json())
 dotenv.config({ path: './config.env' });
 
 // configuring port 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 // configuring database
 require('./Database/connection');
