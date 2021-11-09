@@ -55,6 +55,7 @@ router.post('/login', async(req, res) => {
 
     // comparing passwords
     const isMatch = await bcrypt.compare(password, registeredUser.password);
+    
     if (isMatch) {
         res.send("USER AUTHENTICATED");
     } else {
